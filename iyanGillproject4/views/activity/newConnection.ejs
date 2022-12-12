@@ -1,0 +1,46 @@
+<%- include('../partials/header.ejs')%>    
+<title> New connection </title>
+		<main>
+		<h2>New Connection</h2>
+        <div class="box">
+            
+        <form action="/activity" method='POST'>
+            
+            <label for="delivery">Interest</label><br>
+        
+            <br>
+            <label for="Title">Title: </label>
+            <input type="text" id="title" name="title" placeholder="title" required><br>
+			
+            <label for="Topic">Topic (type 'Music', 'Anime', or 'Other'):</label>
+            <input type="text" id="topic" name="topic" placeholder="topic" required><br>
+			
+			<label for="Details">Details: </label>
+            <input type="text" id="details" name="details" placeholder="description" required><br>
+			
+            <label for="Location">Where:</label>
+            <input type="text" id="location" name="location" placeholder="location" required><br>
+
+            <label for="Date">Date:</label>
+            <input type="date" id="location" name="date" placeholder="date" required><br>
+			
+            <label for="start">Start: </label>
+            <input type="time" id="startTime" name="startTime" required>
+			
+			  <label for="end">End: </label>
+            <input type="time" id="endTime" name="endTime" required> <br>
+			
+            <label for="Host">Host: </label>
+            <input type="text" id="host" name="host" placeholder="host" required>
+
+			 <label for="image">Image url: </label>
+            <input type="text" id="image" name="image"  placeholder="image" required>
+			
+			<br>
+            <input type="submit" value="Finish Connection" required>
+        </form>
+    </div>
+    <br>
+	</main>
+	
+	<%- include('../partials/footer.ejs')%>    

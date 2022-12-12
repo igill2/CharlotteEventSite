@@ -1,0 +1,32 @@
+<%- include('../partials/header.ejs')%>
+<title> Connections </title>
+	<main>
+	<%if(activities.length) {%>
+		<h1>Select activitiy to view</h1> <br>
+		<h2>Music</h2>
+		<%activities.forEach(activity=>{%>
+		<% if (activity.topic==='Music'){%>
+			<li> <a href= "/activity/<%=activity.id%>">	<%= activity.title%> </a> </li>
+			<%}%>
+		<%})%>
+
+		<h2>Anime</h2>
+		<%activities.forEach(activity=>{%>
+			<% if (activity.topic==='Anime'){%>
+				<li> <a href= "/activity/<%=activity.id%>"> <%= activity.title%> </a> </li>
+			<%}%>
+			<%})%>
+
+		<h2>Other</h2>
+		<%activities.forEach(activity=>{%>
+		<% if (activity.topic==='Other'){%>
+			<li> <a href= "/activity/<%=activity.id%>">	<%= activity.title%> </a> </li>
+			<%}%>
+		<%})%>
+
+	<%} else {%>
+		<p>No activities to show at this time.</p>
+	<%}%>
+
+</main>
+	<%- include('../partials/footer.ejs')%>

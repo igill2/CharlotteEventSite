@@ -1,0 +1,65 @@
+<%- include('../partials/header.ejs')%> 
+    <main>
+        <h2>
+            <%=user.firstName + "'s Connections" %>
+        </h2>
+        <table> 
+   <%if(activities.length){%>
+    <thead>
+        <th>Connection</th>
+        <th>Topic</th>
+        <th>Actions</th>
+    </thead>
+    <%activities.forEach(activity=> {%>
+        <tbody>
+         <tr>
+        <td>
+     <a href='/activity/<%=activity.id%>'> <%=activity.title%>     </a>
+         <%=activity.title%>
+        </a>
+    </td>
+    <td>
+        <%=connection.topic%>
+    </td>
+    <td>
+     <form>
+        <button type="submit" formmethod="GET" class="button"
+          formaction="/activity/<%=activity.id%>/edit">Update</button>
+         <button type="submit" formmethod="POST" class="button"
+     formaction="/activity/<%=activity.id%>?_method=DELETE">Delete</button>
+  </form>
+</td>
+</tr>
+</tbody>
+      <%}); } else {%>
+      <p>You have not created any connections</p>
+      <%}%>
+      </table>
+      <%if(rsvps.length) {%>
+        <h2>
+        <%=user.firstName%>'s RSVPs
+        </h2>
+   <table>
+       <thead>
+        <th>Connection</th>
+        <th>Category</th>
+        <th>Attending</th>
+        </thead>
+            <%rsvps.forEach(rsvp=>{%>
+                <tr>
+                  <td><a <%=rsvp.activity.title%>
+                  </a></td>
+                  <td><a href="/connections">
+                    <%=rsvp.connection.topic%>
+                   </a></td>
+                  <td>
+                    <%=rsvp.status%>
+                   </td>
+              </tr>
+         <%});%>
+        </table>
+        <%} else {%>
+     <p>You have not RSVP'd for connections.</p>
+       <%}%>
+    </main>
+    <%- include('../partials/footer.ejs')%>

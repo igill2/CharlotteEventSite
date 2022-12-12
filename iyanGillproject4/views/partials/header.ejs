@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+	<meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="../css/proj1.css" rel="stylesheet" type="text/css" >
+</head>
+
+	<div class="header1">
+		<div class = "image">
+		   <a href="/"> <img src="../images/musicAnime.jpg" width="180px" height="85px" alt="Company Logo"> </a>
+		   </div>
+		
+		<nav>
+			<a href="/"> Home </a>
+			<a href="/activity"> Connections </a>
+			
+			<%if(!user){%>
+				<a href='/users/new'>Sign Up</a> 
+				<a href='/users/login'>Login</a>
+				
+		</nav>
+	</div>
+	
+
+		<%} else{%>
+			
+			<a href="/activity/new"> New connection </a>
+			<a href='/users/profile'>Profile</a> 
+			<a href='/users/logout'>Logout</a>
+			<%}%>
+
+
+
+	<%if(errorMessages.length> 0){
+        errorMessages.forEach(message => {%>
+        <div class='error'>
+            <%=message%>
+        </div>
+        <% }); } %>
+
+            <%if(successMessages.length> 0){
+                successMessages.forEach(message => {%>
+                <div class='success'>
+                    <%=message%>
+                </div>
+                <% }); } %>

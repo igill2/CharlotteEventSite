@@ -1,0 +1,40 @@
+<%- include('../partials/header.ejs')%>
+<title> Edit </title>
+ <main>
+  <h1> Editing </h1>
+ 
+        <form action = "/activity/<%=activity.id%>?_method=PUT" method = "POST" >
+ 
+            <h2>Topic</h2>
+            <input type="text" name="topic" value = "<%= activity.topic%>" required>
+ 
+            <h3>Title</h3>
+            <input type="text" name="title" value = "<%= activity.title%>" required>
+ 
+            <h3>Host</h3>
+            <input type="text" name="host" value = "<%= activity.host%>" required>
+ 
+            <h3>Details</h3>
+            <input type="text" name="details" value = "<%= activity.details%>" required>
+ 
+            <h3>Location</h3>
+            <input type="text" name="location" value = "<%= activity.location%>" required>
+
+            <h3>Date</h3>
+            <input type="date" name="date" value = "<%= activity.date%>" required>
+
+            <h3>Start Time: </h3>
+            <input type="time" name="startTime" value = "<%= activity.startTime%>" required>
+
+            <h3>End Time: </h3>
+            <input type="time" name="endTime" value = "<%= activity.startTime%>" required>
+
+            <h3>Image: </h3>
+            <input type="text" name="image" value = "<%= activity.startTime%>" required>
+
+            <input type="submit" value="Submit">
+          </form>
+        </main>
+          <%- include('../partials/footer.ejs')%>    
+ 
+

@@ -1,0 +1,55 @@
+<%- include('../partials/header.ejs')%> 
+<title> Connection </title>
+
+<main>
+<div class = "list">
+	<h2> Connection: <%= activity.title%></h2>
+	
+	<h3>Topic: <%= activity.topic%></h3>
+
+	<div>
+		<%{%><img src=<%=activity.image%>><% }%>
+	</div>
+
+	<li> Date: <%=activity.date%>
+	</li> <br><br>
+	
+	<li> Details: <%=activity.details%>
+	</li> <br><br>
+
+	<li> Location: <%=activity.location%>
+	</li> <br><br>
+
+	<li> Start Time: <%=activity.startTime%>
+	</li> <br><br>
+
+	<li> End Time: <%=activity.endTime%>
+	</li> 
+<br><br>
+
+<div>
+	<% if(rsvp.length==1) { %>
+		<h3> <%= rsvp.length %> member RSVP'd so far</h3>
+
+		<% } else { %>
+			<h3> <%= rsvp.length %> members RSVP'd so far</h3>
+			<% } %>
+</div>
+
+		<form>
+			<%if(user==activity.host._id){%>
+			<button type="submit" formmethod="GET" formaction="/activity/<%=activity.id%>/edit">Update</button>
+			<button type="submit" formmethod="POST" formaction="/activity/<%=activity.id%>?_method=DELETE">
+				Delete</button> <br><br>
+				<%} else {%>
+					<p> RSVP to attend!</p>	
+					<button type="submit" formmethod="POST" formaction="/activity/<%=activity.id%>/rsvp" value="yes">Yes</button>
+				<button name="status" type="submit" formmethod="POST"
+					formaction="/activity/<%=activity.id%>/rsvp" value="maybe">Maybe</button>
+				<button name="status" type="submit" formmethod="POST"
+					formaction="/activity/<%=activity.id%>/rsvp" value="no">No</button>
+		</form>
+		<%}%>
+	</div>
+</main>
+	<%- include('../partials/footer.ejs')%>    

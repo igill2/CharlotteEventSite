@@ -1,0 +1,19 @@
+<%- include('../partials/header.ejs')%>
+<title> Sign Up </title>
+    <main>
+        <h1>Sign Up</h1>
+        <p>Sign up to view connections and create your own!</p>
+        <form action="/users" method="POST">
+         <label for="firstName">First Name</label>
+         <input type="text" id="firstName" name="firstName" required><br><br>
+         <label for="lastName">Last Name</label>
+          <input type="text" id="lastName" name="lastName" required><br><br>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required><br><br>
+           <label for="password">Password</label>
+           <input type="password" id="password" name="password" minlength="7" maxlength="64" required><br><br>
+           <input type="submit" value="Sign Up" class="button">
+        </form>
+    </main>
+ 
+    <%- include('../partials/footer.ejs')%>
